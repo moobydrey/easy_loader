@@ -17,7 +17,7 @@ class EasyLoader extends StatefulWidget {
   //// Changes the default animation
   final Animation<Offset>? animation;
   //// Sets the image for the icon
-  final ImageProvider image;
+  final String image;
   //// Changes the size of the default icon image
   final double iconSize;
   //// Changes the color of the icon
@@ -32,7 +32,7 @@ class _EasyLoaderState extends State<EasyLoader>
   late AnimationController _controller;
   late Animation<Offset> _offsetAnimation;
   late Color _backgroundColor = Colors.black;
-  late ImageProvider _image;
+  late String _image;
   late double _iconSize;
   @override
   void initState() {
@@ -64,10 +64,7 @@ class _EasyLoaderState extends State<EasyLoader>
         Center(
             child: SlideTransition(
           position: _offsetAnimation,
-          child: ImageIcon(
-            _image,
-            size: _iconSize,
-          ),
+          child: Image.asset(_image, height: _iconSize, fit: BoxFit.contain,)
         ))
       ],
     );
